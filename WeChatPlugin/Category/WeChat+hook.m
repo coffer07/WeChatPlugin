@@ -30,19 +30,21 @@ static char tkAutoReplyWindowControllerKey;     //  自动回复窗口的关联 
  */
 - (void)hook_OnSyncBatchAddMsgs:(NSArray *)msgs isFirstSync:(BOOL)arg2 {
     [self hook_OnSyncBatchAddMsgs:msgs isFirstSync:arg2];
-    
     if ([[TKWeChatPluginConfig sharedConfig] autoReplyEnable]) {
         [msgs enumerateObjectsUsingBlock:^(AddMsg *addMsg, NSUInteger idx, BOOL * _Nonnull stop) {
+            
+            NSDate *now = [NSDate date];
+            NSTimeInterval nowSecond = now.timeIntervalSince1970;
+            if (nowSecond - addMsg.createTime > 180) {      // 若是3分钟前的消息，则不进行自动回复
+                return;
+            }
+            
             if ([addMsg.fromUserName.string containsString:@"@chatroom"]) {                 // 过滤群聊消息
                 return ;
             }
             
             ContactStorage *contactStorage = [[objc_getClass("MMServiceCenter") defaultCenter] getService:objc_getClass("ContactStorage")];
             WCContactData *selfContact = [contactStorage GetSelfContact];
-            
-            if ([addMsg.fromUserName.string isEqualToString:selfContact.m_nsUsrName]) {     // 过滤自己发送的消息
-                return ;
-            }
             
             if (addMsg.msgType == 1 || addMsg.msgType == 3) {
                 MessageService *service = [[objc_getClass("MMServiceCenter") defaultCenter] getService:objc_getClass("MessageService")];
