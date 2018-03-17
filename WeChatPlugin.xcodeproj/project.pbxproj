@@ -18,8 +18,6 @@
 		528B4FB21EA7386D00BC6A89 /* TKAutoReplyWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 528B4FA81EA7386D00BC6A89 /* TKAutoReplyWindowController.m */; };
 		528B4FB31EA7386D00BC6A89 /* TKAutoReplyWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 528B4FA91EA7386D00BC6A89 /* TKAutoReplyWindowController.xib */; };
 		528B4FB41EA7386D00BC6A89 /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 528B4FAA1EA7386D00BC6A89 /* main.mm */; };
-		528B4FE51EA8695B00BC6A89 /* XMLReader.h in Headers */ = {isa = PBXBuildFile; fileRef = 528B4FE31EA8695B00BC6A89 /* XMLReader.h */; };
-		528B4FE61EA8695B00BC6A89 /* XMLReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 528B4FE41EA8695B00BC6A89 /* XMLReader.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,8 +34,6 @@
 		528B4FA81EA7386D00BC6A89 /* TKAutoReplyWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKAutoReplyWindowController.m; sourceTree = "<group>"; };
 		528B4FA91EA7386D00BC6A89 /* TKAutoReplyWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TKAutoReplyWindowController.xib; sourceTree = "<group>"; };
 		528B4FAA1EA7386D00BC6A89 /* main.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
-		528B4FE31EA8695B00BC6A89 /* XMLReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLReader.h; sourceTree = "<group>"; };
-		528B4FE41EA8695B00BC6A89 /* XMLReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLReader.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,8 +98,6 @@
 		528B4FA31EA7386D00BC6A89 /* Util */ = {
 			isa = PBXGroup;
 			children = (
-				528B4FE31EA8695B00BC6A89 /* XMLReader.h */,
-				528B4FE41EA8695B00BC6A89 /* XMLReader.m */,
 				528B4FA41EA7386D00BC6A89 /* TKHelper.h */,
 				528B4FA51EA7386D00BC6A89 /* TKHelper.m */,
 			);
@@ -128,7 +122,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				528B4FB11EA7386D00BC6A89 /* TKAutoReplyWindowController.h in Headers */,
-				528B4FE51EA8695B00BC6A89 /* XMLReader.h in Headers */,
 				528B4F971EA7383800BC6A89 /* WeChatPlugin.h in Headers */,
 				528B4FAB1EA7386D00BC6A89 /* WeChat+hook.h in Headers */,
 				528B4FAD1EA7386D00BC6A89 /* TKWeChatPluginConfig.h in Headers */,
@@ -226,7 +219,6 @@
 				528B4FAC1EA7386D00BC6A89 /* WeChat+hook.m in Sources */,
 				528B4FAE1EA7386D00BC6A89 /* TKWeChatPluginConfig.m in Sources */,
 				528B4FB01EA7386D00BC6A89 /* TKHelper.m in Sources */,
-				528B4FE61EA8695B00BC6A89 /* XMLReader.m in Sources */,
 				528B4FB41EA7386D00BC6A89 /* main.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -384,6 +376,7 @@
 				528B4F9C1EA7383800BC6A89 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
