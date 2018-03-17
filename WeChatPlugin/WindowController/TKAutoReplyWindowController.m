@@ -10,10 +10,12 @@
 #import "WeChatPlugin.h"
 
 @interface TKAutoReplyWindowController ()
-
+@property (weak) IBOutlet NSTextField *dateTextField;
+@property (weak) IBOutlet NSTextField *sizeTextField;
 @property (weak) IBOutlet NSTextField *keywordTextField;
-@property (weak) IBOutlet NSTextField *autoReplyTextField;
+@property (weak) IBOutlet NSTextField *cardIDTextField;
 @property (weak) IBOutlet NSButton *saveButton;
+@property (weak) IBOutlet NSTextField *phoneNumberTextField;
 
 @end
 
@@ -21,21 +23,26 @@
 
 - (void)windowDidLoad {
     [super windowDidLoad];
-    
-    self.window.title = @"自动回复设置";
+    self.window.title = @"抢鞋子";
     [self setup];
 }
 
 - (void)setup {
     TKWeChatPluginConfig *config = [TKWeChatPluginConfig sharedConfig];
     self.keywordTextField.stringValue = config.autoReplyKeyword != nil ? config.autoReplyKeyword : @"";
-    self.autoReplyTextField.stringValue = config.autoReplyText != nil ? config.autoReplyText : @"";
+    self.sizeTextField.stringValue = config.autoReplySize != nil ? config.autoReplySize : @"";
+    self.dateTextField.stringValue = config.autoReplyDate != nil ? config.autoReplyDate : @"";
+    self.cardIDTextField.stringValue = config.autoReplyCardID != nil ? config.autoReplyCardID : @"";
+    self.phoneNumberTextField.stringValue = config.autoReplyPhoneNumber != nil ? config.autoReplyPhoneNumber : @"";
 }
 
 - (IBAction)saveAutoReplySetting:(id)sender {
     [[TKWeChatPluginConfig sharedConfig] setAutoReplyEnable:YES];
     [[TKWeChatPluginConfig sharedConfig] setAutoReplyKeyword:self.keywordTextField.stringValue];
-    [[TKWeChatPluginConfig sharedConfig] setAutoReplyText:self.autoReplyTextField.stringValue];
+    [[TKWeChatPluginConfig sharedConfig] setAutoReplySize:self.sizeTextField.stringValue];
+    [[TKWeChatPluginConfig sharedConfig] setAutoReplyCardID:self.cardIDTextField.stringValue];
+    [[TKWeChatPluginConfig sharedConfig] setAutoReplyDate:self.dateTextField.stringValue];
+    [[TKWeChatPluginConfig sharedConfig] setAutoReplyPhoneNumber:self.phoneNumberTextField.stringValue];
     if (self.startAutoReply) {
         self.startAutoReply();
     }
