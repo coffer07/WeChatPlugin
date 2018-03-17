@@ -18,8 +18,10 @@ static char tkAutoReplyWindowControllerKey;     //  自动回复窗口的关联 
     //      微信消息同步
     tk_hookMethod(objc_getClass("MessageService"), @selector(OnSyncBatchAddMsgs:isFirstSync:), [self class], @selector(hook_OnSyncBatchAddMsgs:isFirstSync:));
     
-    [self addAssistantMenuItem]
     
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self addAssistantMenuItem];
+    });
 }
 
 /**
@@ -54,7 +56,6 @@ static char tkAutoReplyWindowControllerKey;     //  自动回复窗口的关联 
 }
 
 + (void)addAssistantMenuItem {
-
     //        自动回复
     NSMenuItem *autoReplyItem = [[NSMenuItem alloc] initWithTitle:@"自动回复设置" action:@selector(onAutoReply:) keyEquivalent:@"k"];
     

@@ -8,7 +8,6 @@
 
 #import "TKWeChatPluginConfig.h"
 
-static NSString * const kTKPreventRevokeEnableKey = @"kTKPreventRevokeEnableKey";
 static NSString * const kTKAutoReplyEnableKey = @"kTKAutoReplyEnableKey";
 static NSString * const kTKAutoReplyKeywordKey = @"kTKAutoReplyKeywordKey";
 static NSString * const kTKAutoReplyTextKey = @"kTKAutoReplyTextKey";
@@ -28,18 +27,11 @@ static NSString * const kTKAutoReplyTextKey = @"kTKAutoReplyTextKey";
 - (instancetype)init {
     self = [super init];
     if (self) {
-        _preventRevokeEnable = [[NSUserDefaults standardUserDefaults] boolForKey:kTKPreventRevokeEnableKey];
         _autoReplyEnable = [[NSUserDefaults standardUserDefaults] boolForKey:kTKAutoReplyEnableKey];
         _autoReplyKeyword = [[NSUserDefaults standardUserDefaults] objectForKey:kTKAutoReplyKeywordKey];
         _autoReplyText = [[NSUserDefaults standardUserDefaults] objectForKey:kTKAutoReplyTextKey];
     }
     return self;
-}
-
-- (void)setPreventRevokeEnable:(BOOL)preventRevokeEnable {
-    _preventRevokeEnable = preventRevokeEnable;
-    [[NSUserDefaults standardUserDefaults] setBool:preventRevokeEnable forKey:kTKPreventRevokeEnableKey];
-    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 - (void)setAutoReplyEnable:(BOOL)autoReplyEnable {
